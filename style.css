@@ -11,7 +11,7 @@ header {
     border: lightslategray 2px solid;
     border-radius: 45px;
     padding-left: 10px;
-    background-color: #5ff0d0;
+    background-color: #242e3f;
     margin: 7px;
 }
 
@@ -52,7 +52,7 @@ a {
 }
 
 a:hover {
-    color: #20243e;
+    color: #242e3f;
 }
 
 p {
