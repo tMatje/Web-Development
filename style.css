@@ -11,7 +11,7 @@ header {
     border: lightslategray 2px solid;
     border-radius: 45px;
     padding-left: 10px;
-    background-color: #20243e;
+    background-color: #5ff0d0;
     margin: 7px;
 }
 
@@ -39,6 +39,7 @@ main {
     padding: 5px;
     background-color: lightslategray;
     border-radius: 10px;
+    box-shadow: inset 0 0 10px #010f32;
 }
 
 h2 {
