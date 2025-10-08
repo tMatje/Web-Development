@@ -58,3 +58,16 @@ a:hover {
 p {
     color: white;
 }
+
+footer {
+    text-align: right;
+    font-size: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+footer a:hover {
+    color: #ca1717;
+}
