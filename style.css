@@ -80,8 +80,9 @@ img {
 footer {
     text-align: right;
     font-size: 40px;
-    position: relative;
-    bottom: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
     left: 0;
     z-index: 10;
 }
