@@ -55,13 +55,13 @@ a:hover {
 }
 
 p {
-    color: white;
+    color: #d1d1d1;
 }
 
 #Donald {
     float: right;
     text-align: right;
-    padding: 0px;
+    padding: 0;
 }
 
 
