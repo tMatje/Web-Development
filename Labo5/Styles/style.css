@@ -1,0 +1,32 @@
+h1, h2, h3 {
+    font-family: "Arial", sans-serif;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    font-family: "Times New Roman", sans-serif;
+    font-size: 1.2em;
+}
+
+.rood {
+    color: #c62626;
+}
+
+.groen {
+    color: #34b13d;
+}
+
+.blauw {
+    color: #0032ff;
+}
