@@ -82,3 +82,16 @@ footer a:hover {
 table, th, td {
     border:1px solid black;
 }
+
+.home a {
+    text-decoration: none;
+}
+
+.home a:hover {
+    text-decoration: underline;
+    color: #242e3f;
+}
+
+nav a {
+    text-decoration: none;
+}
