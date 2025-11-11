@@ -1,0 +1,36 @@
+body, p {
+    font-family: Verdana, sans-serif;
+    background-color: silver;
+    color: darkblue;
+}
+
+h1{
+    font-variant: small-caps;
+    background-color: red;
+}
+
+a:hover {
+    border: black solid 1px;
+}
+
+.stippeltjesrand {
+    border: black dotted 1px;
+}
+
+header > h1 {
+    background-color: #010f32;
+}
+
+a {
+    display: inline-block;
+    background: url("images/icon.png") no-repeat left center;
+    background-size: 16px;
+    padding-left: 20px;
+}
+
+/*a::before {
+    content: url("images/icon.png");
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}*/
