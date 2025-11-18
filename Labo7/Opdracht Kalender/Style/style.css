@@ -1,5 +1,8 @@
 table {
+    border: 1px solid black;
     border-collapse: collapse;
+    color: black;
+    background-color: white;
 }
 
 td {
@@ -7,21 +10,26 @@ td {
 }
 
 th {
-    background-color: #a9a9c6;
+    background-color: rgb(170, 170, 200);
     color: #000000;
 }
 
 td:first-child, td:last-child {
-    background-color: #fddada;
+    background-color: rgb(255, 220, 220);
     color: #000000;
 }
 
 .days td{
-    background-color: #232545;
-    color: #c4bde5;
+    background-color: rgb(35, 37, 70);
+    color: rgb(200, 190, 240);
+}
+
+body table tr .feestdag {
+    background-color: rgb(250, 120, 120);
 }
 
 tr .nietDezeMaand {
     background-color: #cacaca;
     color: #a9abb3;
 }
+
