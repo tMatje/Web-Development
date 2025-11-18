@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border-style: dotted;
+}
+
+th {
+    background-color: #a9a9c6;
+    color: #000000;
+}
+
+td:first-child, td:last-child {
+    background-color: #fddada;
+    color: #000000;
+}
+
+.days td{
+    background-color: #232545;
+    color: #c4bde5;
+}
+
+tr .nietDezeMaand {
+    background-color: #cacaca;
+    color: #a9abb3;
+}
