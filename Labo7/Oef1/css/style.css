@@ -1,0 +1,53 @@
+.centered {
+    width: 40%;
+    margin: 0 auto;
+}
+
+h2{
+    text-align: center;
+    background-color: #010f32;
+}
+
+table {
+    width: 100%;
+    color: #010f32;
+    background-color: #768798;
+    margin-bottom: 200px;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section{
+    background-color: #768798;
+    margin: 30px;
+}
+
+header a{
+    color: #b4c1cf;
+    background-color: #010f32;
+    text-decoration: none;
+}
+
+p, a, h3, li{
+    background-color: #768798;
+    color: #010f32;
+
+    width: 80%;
+    margin: 0 auto;
+}
+
+img {
+    margin-left: 10%;
+}
+
+section a{
+    color: #c8f6ff;
+    margin-left: 10%;
+}
+
+#Donald {
+    width: 25%;
+}
