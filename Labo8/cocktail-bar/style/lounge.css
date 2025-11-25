@@ -1,0 +1,72 @@
+body {
+    width: 95%;
+    margin: 0 auto;
+    font-family: Verdana, Helvetica, Arial;
+    font-size: 1.2em;
+}
+
+header p img {
+    margin: 0 auto 0 auto;
+    padding: 0;
+    display: flex;
+    scale: 60%;
+}
+
+h1 {
+    color: #1d857c;
+    font-size: 150%;
+}
+
+h2 {
+    color: #1d857c;
+    font-size: 130%;
+}
+
+aside {
+    width: 30%;
+    float: right;
+    border: #4e80bc 2px solid;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+aside h1 {
+    color: #000000;
+}
+
+aside h2 {
+    color: #ba254d;
+}
+
+.color {
+    background-color: #a6cccc;
+    padding: 20px;
+    border: dotted 3px white;
+}
+
+footer {
+    font-size: 50%;
+}
+
+aside a:hover {
+    color: #783214;
+}
+
+.artist {
+    font-weight: bold;
+}
+
+li {
+    font-family: cursive;
+}
+
+
+#content {
+    margin-right: 32.5%;
+}
+
+article {
+    unicode-bidi: isolate;
+}
