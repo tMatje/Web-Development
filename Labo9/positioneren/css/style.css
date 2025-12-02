@@ -1,0 +1,38 @@
+body {
+    font-size: 25px;
+    width: 76%;
+    margin: 0 auto;
+}
+
+img {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+article:nth-child(even) img {
+    float: right;
+}
+
+article:nth-child(odd) img {
+    float: left;
+}
+
+article {
+    border: 1px solid black;
+    height: 310px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+p {
+    margin: 10px;
+    padding: 10px;
+}
+
+h2 {
+    margin-left: 20px;
+}
+
+main {
+    padding-top: 10px;
+}
