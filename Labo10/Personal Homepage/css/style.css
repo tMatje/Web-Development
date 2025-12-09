@@ -1,0 +1,44 @@
+body {
+    background-color: #131112;
+    color: #f0f5f0;
+    padding: 20px;
+}
+
+.bg-1 {
+    background-color: #56748f;
+}
+
+.bg-2 {
+    background-color: #8d8257;
+}
+
+.bg-3 {
+    background-color: #2f242c;
+}
+
+.bg-4 {
+    background-color: #f0f5f0;
+    color: #080708;
+}
+
+#Robot {
+    max-width: 150px;
+    min-width: 20px;
+}
+
+#afstuderen {
+    max-width: 150px;
+    min-width: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.container-fluid {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+body > div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
