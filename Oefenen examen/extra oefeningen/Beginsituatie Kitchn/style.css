@@ -1,0 +1,176 @@
+/** Volgende CSS gaan we ze geven **/
+* {
+    margin: 0;
+}
+
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    font-family: Helvetica, sans-serif, Arial;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    color: #000000;
+    text-decoration: underline 2px;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+header > figure {
+    border-bottom: solid 1px #ebe8e8;
+}
+
+header > figure > img {
+    height: 50px;
+}
+
+header {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px 0;
+    align-content: center;
+    width: 600px;
+}
+.grid-container > li {
+    text-align: center;
+    padding: 10px 0;
+    border-right: 1px solid #ebe8e8;
+    text-transform: uppercase;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+}
+.grid-container > li:last-child {
+    border-right: none;
+}
+
+.grid-container > li:hover {
+    border-bottom: #fff100 solid 2px;
+}
+
+img {
+    max-width: 100%;
+}
+
+#banner {
+    width: 100%;
+    height: 500px;
+    background-image: url('images/headerimage.jpg');
+    background-size: cover;
+    background-position-y: center;
+    text-align: center;
+    align-content: center;
+}
+
+#banner h1 {
+    font-size: 40px;
+    color: white;
+    text-shadow: #8D99AE 2px 2px;
+}
+
+main {
+    margin-top: 50px;
+}
+
+.article-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+    place-items: center;
+    width: 600px;
+    margin: 0 auto;
+}
+
+article article {
+    margin-right: 1.5em;
+    padding-top: 1em;
+    border-top: 1px solid #dddddd;
+}
+
+article > h1 {
+    color: #ff4d56;
+    font-size: 1.2em;
+    padding-top: 1em;
+    letter-spacing: 1px;
+}
+
+article h2 {
+    text-decoration: none;
+    color: black;
+}
+
+#recommended {
+    width: 600px;
+    margin: 0 auto;
+}
+
+div > figure {
+    margin-bottom: 25px;
+}
+
+#left {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    text-align: right;
+    padding:20px;
+    height: 2em;
+}
+#right {
+    box-sizing: border-box;
+    float: right;
+    width: 50%;
+    padding: 20px;
+    height: 2em;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (min-width:770px) {
+    header {
+        width: 750px;
+    }
+    .grid-container {
+        width: 750px;
+    }
+    .article-grid-container {
+        width: 750px;
+    }
+    #recommended {
+        width: 750px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    header {
+        width: 950px;
+    }
+    .grid-container {
+        width: 950px;
+    }
+    .article-grid-container {
+        width: 980px;
+    }
+    #recommended {
+        width: 980px;
+        margin: 0 auto;
+    }
+}
