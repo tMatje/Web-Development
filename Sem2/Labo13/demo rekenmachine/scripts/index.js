@@ -63,21 +63,4 @@ const delen = () => {
 	txtOutput.innerHTML=resultaatTekst;
 }
  
-window.addEventListener('load',setup); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+window.addEventListener('load',setup);
