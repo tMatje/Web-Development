@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<h2>Formvalidatie</h2>
+
+<form id="mijnForm" novalidate>
+
+    <div class="veld">
+        <label>Voornaam:</label>
+        <input type="text" id="voornaam" maxlength="30">
+        <span id="foutVoornaam" class="foutmelding"></span>
+    </div>
+
+    <div class="veld">
+        <label>Familienaam:</label>
+        <input type="text" id="familienaam" maxlength="50" required>
+        <span id="foutFamilienaam" class="foutmelding"></span>
+    </div>
+
+    <div class="veld">
+        <label>Geboortedatum:</label>
+        <input type="text" id="geboorte" placeholder="jjjj-mm-dd" required>
+        <span id="foutGeboorte" class="foutmelding"></span>
+    </div>
+
+    <div class="veld">
+        <label>Email:</label>
+        <input type="text" id="email" required>
+        <span id="foutEmail" class="foutmelding"></span>
+    </div>
+
+    <div class="veld">
+        <label>Aantal kinderen:</label>
+        <input type="text" id="kinderen">
+        <span id="foutKinderen" class="foutmelding"></span>
+    </div>
+
+    <button type="button" onclick="valideer()">Valideer</button>
+    <script src="formvalidatie.js"></script>
+
+</form>
+<script src="scripts/script.js"></script>
+</body>
+</html>

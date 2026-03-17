@@ -1,0 +1,10 @@
+.veld {
+    margin-bottom: 10px;
+}
+input.error {
+    border: 2px solid red;
+}
+span.foutmelding {
+    color: red;
+    margin-left: 10px;
+}
