@@ -1,155 +1,110 @@
+/* Body & font */
 body {
-    background-color: #242e40;
-    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2238, #2b3350);
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    border: lightslategray 2px solid;
-    border-radius: 45px;
-    padding-left: 10px;
-    background-color: #010f32;
-    margin: 7px;
+    padding: 15px 30px;
+    background-color: rgba(10, 20, 40, 0.9);
+    border-bottom: 1px solid #444;
+    border-radius: 0 0 20px 20px;
 }
 
-header a:hover {
-    color: #768798;
-}
-
-h1 {
-    text-align: left;
-    color: white;
-    padding: 2px;
-    margin-top: 10px;
-    display: inline-block;
-    font-size: 20px;
-}
-
-nav {
-    display: block;
-    text-align: left;
-    padding: 15px;
-}
-
-main {
-    margin: 10px;
-    padding: 5px;
-    background-color: lightslategray;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px #010f32;
-}
-
-h2 {
-    color: #e4e4e4;
-}
-
-a {
-    color: #ffffff;
-}
-
-a:hover {
-    color: #000000;
-}
-
-p {
-    color: #d1d1d1;
-}
-
-#Donald {
-    float: right;
-    display: inline-block;
-}
-
-
-footer {
-    text-align: right;
-    font-size: 40px;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    left: 0;
-    z-index: 10;
-}
-
-footer a:hover {
-    color: #ca1717;
-}
-
-table, th, td {
-    border:1px solid black;
-}
-
-.home a {
-    text-decoration: none;
-}
-
-.home a:hover {
-    text-decoration: none;
-    color: #d89a54;
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
 }
 
 nav a {
     text-decoration: none;
+    color: #bbb;
+    margin-left: 15px;
+    transition: color 0.3s ease;
 }
 
-.home li {
-    list-style-type: none;
+nav a:hover {
+    color: #ffb74d;
+}
+
+/* Grid layout */
+.home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Cards */
+.home section {
+    background-color: rgba(20, 30, 60, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .home section:hover {
-    background: linear-gradient(90deg, rgb(1, 15, 50) 0%, rgb(14, 49, 71) 50%, rgb(36, 46, 63) 100%);
-}
-
-.home section {
-    padding: 2px 20px;
-    margin: 10px;
-    border: 3px solid #d69953;
-    border-radius: 10px;
-    background-color: #242e3f;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 .home h2 {
-    color: #d89a54;
-}
-.home {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-
+    color: #ffb74d;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
+.home ul {
+    padding-left: 15px;
+}
+
+.home li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.home a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.home a:hover {
+    color: #ffb74d;
+}
+
+/* Game container */
 #game-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
+    width: 320px;
     height: 200px;
-    cursor: pointer;
-    z-index: 9999;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
+    z-index: 9999;
 }
 
 #game-container.expanded {
-    width: 80vw;
-    height: 80vh;
-    bottom: 10%;
-    right: 10%;
+    width: 100vw;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
 }
 
 #game-frame {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-}
-
-#game-container {
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-#game-container.expanded {
-    border-radius: 15px;
+    border: none;
 }
 
 #game-header {
@@ -167,24 +122,15 @@ nav a {
 /* Mobile landscape fullscreen */
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     #game-container {
-        position: fixed !important;
-        top: 0;
-        left: 0;
         width: 100vw !important;
         height: 100vh !important;
-        margin: 0;
-        border-radius: 0;
-        cursor: default;
-        z-index: 9999;
-    }
-
-    #game-frame {
-        width: 100%;
-        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        right: auto;
         border-radius: 0;
     }
-
     #game-header {
-        display: none; /* optional: hide the toggle button in fullscreen */
+        display: none;
     }
 }

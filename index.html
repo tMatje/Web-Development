@@ -8,12 +8,6 @@
 <body>
 <header>
     <h1>Web-Development</h1>
-    <nav>
-        <a href="#Labo2">Labo 2</a>
-        <a href="#Labo3">Labo 3</a>
-        <a href="#Labo4">Labo 4</a>
-        <a href="#Labo5">Labo 5</a>
-    </nav>
 </header>
 <main class="home">
     <section id="Labo2">
@@ -154,17 +148,20 @@
         <li><a href="Sem2/Labo17/gemeenten">gemeenten</a></li>
         <li><a href="Sem2/Labo17/trigrams">trigrams</a></li>
     </section>
+    <section id="Game">
+        <div id="game-container">
+            <div id="game-header" onclick="toggleGame()">⤢</div>
 
-    <div id="game-container">
-        <div id="game-header" onclick="toggleGame()">⤢</div>
+            <iframe
+                    src="Game/index.html"
+                    id="game-frame"
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
-        <iframe
-                src="Game/index.html"
-                id="game-frame"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
-    </div>
+
 
 </main>
 <script src="script.js"></script>
