@@ -1,13 +1,19 @@
-/* Body & font */
+/* ==========================
+   Body & Fonts
+========================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a2238, #2b3350);
     color: #e0e0e0;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
-/* Header */
+/* ==========================
+   Header
+========================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -27,14 +33,17 @@ nav a {
     text-decoration: none;
     color: #bbb;
     margin-left: 15px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 nav a:hover {
     color: #ffb74d;
+    transform: scale(1.05);
 }
 
-/* Grid layout */
+/* ==========================
+   Home Grid Layout
+========================== */
 .home {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -42,24 +51,29 @@ nav a:hover {
     padding: 30px;
 }
 
-/* Cards */
+/* ==========================
+   Cards
+========================== */
 .home section {
-    background-color: rgba(20, 30, 60, 0.8);
+    background-color: rgba(20, 30, 60, 0.85);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .home section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    background-color: rgba(25, 35, 70, 0.9);
 }
 
 .home h2 {
     color: #ffb74d;
     font-size: 20px;
     margin-bottom: 15px;
+    transition: color 0.3s ease;
 }
 
 .home ul {
@@ -74,29 +88,34 @@ nav a:hover {
 .home a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .home a:hover {
     color: #ffb74d;
 }
 
-/* Game container */
+/* ==========================
+   Game Container
+========================== */
 #game-container {
     width: 100%;
     height: 100%;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
     position: relative;
+    transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, transform 0.3s ease;
 }
 
 #game-container.expanded {
-    width: 100%;   /* Full viewport width */
-    height: 100%;  /* Full viewport height */
-    bottom: 0;
-    right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     border-radius: 0;
+    transform: scale(1.02);
 }
 
 #game-frame {
@@ -105,30 +124,50 @@ nav a:hover {
     border: none;
 }
 
+/* Floating game header button */
 #game-header {
     position: absolute;
-    top: 10px;      /* inside the container */
-    right: 10px;    /* a little space from right edge */
-    background: #e4e4e4; /* green */
+    top: 10px;
+    right: 10px;
+    background: #e4e4e4;
     color: #0d0a26;
     padding: 5px 10px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    z-index: 10;   /* ensure it's on top of iframe */
+    z-index: 10;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
-/* Mobile landscape fullscreen */
-@media only screen and (max-width: 768px) and (orientation: landscape) {
-    #game-container {
-        width: 100vw !important;
-        height: 100vh !important;
-        top: 0;
-        left: 0;
-        bottom: auto;
-        right: auto;
-        border-radius: 0;
+
+#game-header:hover {
+    background: #d0d0d0;
+    transform: scale(1.05);
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+@media only screen and (max-width: 768px) {
+    .home {
+        grid-template-columns: 1fr; /* single column */
+        padding: 15px;
+        gap: 15px;
     }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+
     #game-header {
-        display: none;
+        font-size: 12px;
+        padding: 4px 8px;
     }
 }
