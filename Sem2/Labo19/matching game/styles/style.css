@@ -1,19 +1,108 @@
+:root {
+    --primary: #6366f1;
+    --accent: #a855f7;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --bg: #0f172a;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#stats {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 120px); /* AANTAL_HORIZONTAAL */
-    gap: 10px;
-    margin: 20px auto;
-    width: max-content;
+    grid-template-columns: repeat(4, 110px);
+    gap: 15px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card {
-    width: 120px;
-    height: 160px;
+.card-slot {
+    width: 110px;
+    height: 150px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
     cursor: pointer;
-    border: 2px solid #ccc;
-    border-radius: 8px;
 }
 
-.card.correct { border-color: green; }
-.card.wrong { border-color: red; }
-.card.invisible { visibility: hidden; }
+.card-slot.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e293b;
+}
+
+.card-back {
+    border: 3px solid var(--accent);
+}
+
+.card-front {
+    transform: rotateY(180deg);
+    border: 3px solid var(--primary);
+}
+
+.card-back img, .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Feedback & Transitions */
+.card-slot.correct .card-front { border-color: var(--success); }
+.card-slot.wrong .card-front { border-color: var(--danger); }
+.card-slot.invisible { opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal {
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    border: 2px solid var(--primary);
+}

@@ -6,7 +6,19 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+<div id="stats">
+    Tijd: <span id="timer">00:00</span>
+</div>
+
 <div id="game-board"></div>
+
+<div id="victory-screen" class="overlay">
+    <div class="modal">
+        <h1>Gewonnen!</h1>
+        <p>Je tijd was: <span id="final-time">00:00</span></p>
+        <button onclick="location.reload()">Opnieuw Spelen</button>
+    </div>
+</div>
 <script src="scripts/script.js"></script>
 </body>
 </html>

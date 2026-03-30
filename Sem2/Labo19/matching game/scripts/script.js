@@ -1,88 +1,114 @@
-// Globalen
-const AANTAL_HORIZONTAAL = 4;
-const AANTAL_VERTICAAL = 3;
 const AANTAL_KAARTEN = 6;
 const ACHTERKANT = 'Images/achterkant.png';
 
-let kaartenArray = [];
-let omgedraaideKaarten = [];
-let isBusy = false; // Voorkomt klikken tijdens wachttijd
+let cardsArray = [];
+let flippedCards = [];
+let isBusy = false;
+let gameStarted = false;
+let matchesFound = 0;
+let seconds = 0;
+let timerInterval;
 
-// 1. Vul de array met 2x elke kaart
-for (let i = 1; i <= AANTAL_KAARTEN; i++) {
-    kaartenArray.push(`Images/kaart${i}.png`);
-    kaartenArray.push(`Images/kaart${i}.png`);
+function initGame() {
+    // Generate pairs
+    for (let i = 1; i <= AANTAL_KAARTEN; i++) {
+        cardsArray.push(`Images/kaart${i}.png`, `Images/kaart${i}.png`);
+    }
+    cardsArray.sort(() => Math.random() - 0.5);
+    renderBoard();
 }
 
-// 2. Schud de kaarten (optioneel voor testen eerst uitzetten)
-kaartenArray.sort(() => 0.5 - Math.random());
+function renderBoard() {
+    const board = document.getElementById('game-board');
+    board.innerHTML = '';
 
-const board = document.getElementById('game-board');
+    cardsArray.forEach((imgSrc) => {
+        const slot = document.createElement('div');
+        slot.className = 'card-slot';
 
-// 3. Bouw het bord
-kaartenArray.forEach((imgSrc, index) => {
-    const card = document.createElement('img');
-    card.src = ACHTERKANT;
-    card.dataset.face = imgSrc; // Onthoud welke afbeelding dit is
-    card.classList.add('card');
-    card.addEventListener('click', flipCard);
-    board.appendChild(card);
-});
+        const inner = document.createElement('div');
+        inner.className = 'card-inner';
 
-function flipCard() {
-    console.log(this.dataset.face)
+        // Back Face
+        const back = document.createElement('div');
+        back.className = 'card-back';
+        const bImg = document.createElement('img');
+        bImg.src = ACHTERKANT;
+        back.appendChild(bImg);
 
-    // Check of we mogen klikken
+        // Front Face
+        const front = document.createElement('div');
+        front.className = 'card-front';
+        const fImg = document.createElement('img');
+        fImg.src = imgSrc;
+        front.appendChild(fImg);
+
+        inner.appendChild(back);
+        inner.appendChild(front);
+        slot.appendChild(inner);
+
+        slot.onclick = handleCardClick;
+        board.appendChild(slot);
+    });
+}
+
+function handleCardClick() {
     if (isBusy || this.classList.contains('flipped') || this.classList.contains('invisible')) return;
 
-    // Toon voorkant
-    this.src = this.dataset.face;
-    this.classList.add('flipped');
-    omgedraaideKaarten.push(this);
+    if (!gameStarted) startTimer();
 
-    if (omgedraaideKaarten.length === 2) {
-        checkMatch();
-    }
+    this.classList.add('flipped');
+    flippedCards.push(this);
+
+    if (flippedCards.length === 2) checkMatch();
 }
 
 function checkMatch() {
     isBusy = true;
-    const [kaart1, kaart2] = omgedraaideKaarten;
+    const [c1, c2] = flippedCards;
+    const img1 = c1.querySelector('.card-front img').src;
+    const img2 = c2.querySelector('.card-front img').src;
 
-    if (kaart1.dataset.face === kaart2.dataset.face) {
-        // MATCH
-        kaart1.classList.add('correct');
-        kaart2.classList.add('correct');
-
+    if (img1 === img2) {
+        matchesFound++;
+        c1.classList.add('correct');
+        c2.classList.add('correct');
         setTimeout(() => {
-            kaart1.classList.add('invisible');
-            kaart2.classList.add('invisible');
+            c1.classList.add('invisible');
+            c2.classList.add('invisible');
             resetTurn();
-            checkWin();
-        }, 1000);
+            if (matchesFound === AANTAL_KAARTEN) endGame();
+        }, 800);
     } else {
-        // GEEN MATCH
-        kaart1.classList.add('wrong');
-        kaart2.classList.add('wrong');
-
+        c1.classList.add('wrong');
+        c2.classList.add('wrong');
         setTimeout(() => {
-            kaart1.src = ACHTERKANT;
-            kaart2.src = ACHTERKANT;
-            kaart1.classList.remove('flipped', 'wrong');
-            kaart2.classList.remove('flipped', 'wrong');
+            c1.classList.remove('flipped', 'wrong');
+            c2.classList.remove('flipped', 'wrong');
             resetTurn();
         }, 1000);
     }
 }
 
 function resetTurn() {
-    omgedraaideKaarten = [];
+    flippedCards = [];
     isBusy = false;
 }
 
-function checkWin() {
-    const overgebleven = document.querySelectorAll('.card:not(.invisible)');
-    if (overgebleven.length === 0) {
-        alert("Gefeliciteerd! Je hebt alle matches gevonden.");
-    }
+function startTimer() {
+    gameStarted = true;
+    timerInterval = setInterval(() => {
+        seconds++;
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        document.getElementById('timer').textContent = `${m}:${s}`;
+    }, 1000);
 }
+
+function endGame() {
+    clearInterval(timerInterval);
+    document.getElementById('final-time').textContent = document.getElementById('timer').textContent;
+    document.getElementById('victory-screen').style.display = 'flex';
+}
+
+initGame();
