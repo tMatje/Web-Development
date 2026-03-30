@@ -1,0 +1,19 @@
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px); /* AANTAL_HORIZONTAAL */
+    gap: 10px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.card {
+    width: 120px;
+    height: 160px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.card.correct { border-color: green; }
+.card.wrong { border-color: red; }
+.card.invisible { visibility: hidden; }
