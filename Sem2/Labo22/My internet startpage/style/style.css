@@ -1,0 +1,74 @@
+#inputveld {
+    width: 100%;
+    height: 35px;
+}
+
+#goBtn {
+    width: 100%;
+    height: 45px;
+    background-color: #28a644;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #72d387;
+    border-radius: 10px;
+}
+
+#goBtn:hover {
+    background-color: #58ca4b;
+}
+
+#inputInstructies {
+    color: #8a8c8f;
+    margin-top: 0;
+}
+
+.kaart {
+    background-color: #b6b6b6;
+    border-radius: 5px;
+    height: 100px;
+    margin-bottom: 9px;
+    padding: 15px;
+}
+
+.titel {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 10px 0;
+}
+
+.kaartBtn {
+    width: 45px;
+    height: 28px;
+    margin: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: #282828;
+}
+
+.google {
+    background-color: #4184f2;
+}
+
+.btngoogle {
+    background-color: #fd0000;
+}
+
+.youtube {
+    background-color: #fd0000;
+}
+
+.x {
+    background-color: #1da0f0;
+}
+
+.instagram {
+    background-color: #c129a2;
+}
+
+.btninstagram {
+    background-color: #f26e2f;
+}
+
+p {
+    color: white;
+}
